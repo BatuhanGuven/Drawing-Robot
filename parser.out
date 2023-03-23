@@ -1,0 +1,606 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> expr
+Rule 1     expr -> loop
+Rule 2     expr -> frcp
+Rule 3     loop -> LOOP NUMBER LEFT_PAREN expr RIGHT_PAREN expr
+Rule 4     frcp -> forward expr
+Rule 5     frcp -> backward expr
+Rule 6     frcp -> rotate expr
+Rule 7     frcp -> colorexp expr
+Rule 8     frcp -> pen expr
+Rule 9     frcp -> empty
+Rule 10    rotate -> ROTATE NUMBER
+Rule 11    backward -> BACKWARD NUMBER
+Rule 12    forward -> FORWARD NUMBER
+Rule 13    pen -> PEN NUMBER
+Rule 14    colorexp -> COLOR COLOR_RED
+Rule 15    colorexp -> COLOR COLOR_BLUE
+Rule 16    colorexp -> COLOR COLOR_GREEN
+Rule 17    empty -> <empty>
+
+Terminals, with rules where they appear
+
+BACKWARD             : 11
+COLOR                : 14 15 16
+COLOR_BLUE           : 15
+COLOR_GREEN          : 16
+COLOR_RED            : 14
+FORWARD              : 12
+LEFT_PAREN           : 3
+LOOP                 : 3
+NUMBER               : 3 10 11 12 13
+PEN                  : 13
+RIGHT_PAREN          : 3
+ROTATE               : 10
+error                : 
+
+Nonterminals, with rules where they appear
+
+backward             : 5
+colorexp             : 7
+empty                : 9
+expr                 : 3 3 4 5 6 7 8 0
+forward              : 4
+frcp                 : 2
+loop                 : 1
+pen                  : 8
+rotate               : 6
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . expr
+    (1) expr -> . loop
+    (2) expr -> . frcp
+    (3) loop -> . LOOP NUMBER LEFT_PAREN expr RIGHT_PAREN expr
+    (4) frcp -> . forward expr
+    (5) frcp -> . backward expr
+    (6) frcp -> . rotate expr
+    (7) frcp -> . colorexp expr
+    (8) frcp -> . pen expr
+    (9) frcp -> . empty
+    (12) forward -> . FORWARD NUMBER
+    (11) backward -> . BACKWARD NUMBER
+    (10) rotate -> . ROTATE NUMBER
+    (14) colorexp -> . COLOR COLOR_RED
+    (15) colorexp -> . COLOR COLOR_BLUE
+    (16) colorexp -> . COLOR COLOR_GREEN
+    (13) pen -> . PEN NUMBER
+    (17) empty -> .
+
+    LOOP            shift and go to state 4
+    FORWARD         shift and go to state 11
+    BACKWARD        shift and go to state 12
+    ROTATE          shift and go to state 13
+    COLOR           shift and go to state 14
+    PEN             shift and go to state 15
+    $end            reduce using rule 17 (empty -> .)
+
+    expr                           shift and go to state 1
+    loop                           shift and go to state 2
+    frcp                           shift and go to state 3
+    forward                        shift and go to state 5
+    backward                       shift and go to state 6
+    rotate                         shift and go to state 7
+    colorexp                       shift and go to state 8
+    pen                            shift and go to state 9
+    empty                          shift and go to state 10
+
+state 1
+
+    (0) S' -> expr .
+
+
+
+state 2
+
+    (1) expr -> loop .
+
+    $end            reduce using rule 1 (expr -> loop .)
+    RIGHT_PAREN     reduce using rule 1 (expr -> loop .)
+
+
+state 3
+
+    (2) expr -> frcp .
+
+    $end            reduce using rule 2 (expr -> frcp .)
+    RIGHT_PAREN     reduce using rule 2 (expr -> frcp .)
+
+
+state 4
+
+    (3) loop -> LOOP . NUMBER LEFT_PAREN expr RIGHT_PAREN expr
+
+    NUMBER          shift and go to state 16
+
+
+state 5
+
+    (4) frcp -> forward . expr
+    (1) expr -> . loop
+    (2) expr -> . frcp
+    (3) loop -> . LOOP NUMBER LEFT_PAREN expr RIGHT_PAREN expr
+    (4) frcp -> . forward expr
+    (5) frcp -> . backward expr
+    (6) frcp -> . rotate expr
+    (7) frcp -> . colorexp expr
+    (8) frcp -> . pen expr
+    (9) frcp -> . empty
+    (12) forward -> . FORWARD NUMBER
+    (11) backward -> . BACKWARD NUMBER
+    (10) rotate -> . ROTATE NUMBER
+    (14) colorexp -> . COLOR COLOR_RED
+    (15) colorexp -> . COLOR COLOR_BLUE
+    (16) colorexp -> . COLOR COLOR_GREEN
+    (13) pen -> . PEN NUMBER
+    (17) empty -> .
+
+    LOOP            shift and go to state 4
+    FORWARD         shift and go to state 11
+    BACKWARD        shift and go to state 12
+    ROTATE          shift and go to state 13
+    COLOR           shift and go to state 14
+    PEN             shift and go to state 15
+    $end            reduce using rule 17 (empty -> .)
+    RIGHT_PAREN     reduce using rule 17 (empty -> .)
+
+    forward                        shift and go to state 5
+    expr                           shift and go to state 17
+    loop                           shift and go to state 2
+    frcp                           shift and go to state 3
+    backward                       shift and go to state 6
+    rotate                         shift and go to state 7
+    colorexp                       shift and go to state 8
+    pen                            shift and go to state 9
+    empty                          shift and go to state 10
+
+state 6
+
+    (5) frcp -> backward . expr
+    (1) expr -> . loop
+    (2) expr -> . frcp
+    (3) loop -> . LOOP NUMBER LEFT_PAREN expr RIGHT_PAREN expr
+    (4) frcp -> . forward expr
+    (5) frcp -> . backward expr
+    (6) frcp -> . rotate expr
+    (7) frcp -> . colorexp expr
+    (8) frcp -> . pen expr
+    (9) frcp -> . empty
+    (12) forward -> . FORWARD NUMBER
+    (11) backward -> . BACKWARD NUMBER
+    (10) rotate -> . ROTATE NUMBER
+    (14) colorexp -> . COLOR COLOR_RED
+    (15) colorexp -> . COLOR COLOR_BLUE
+    (16) colorexp -> . COLOR COLOR_GREEN
+    (13) pen -> . PEN NUMBER
+    (17) empty -> .
+
+    LOOP            shift and go to state 4
+    FORWARD         shift and go to state 11
+    BACKWARD        shift and go to state 12
+    ROTATE          shift and go to state 13
+    COLOR           shift and go to state 14
+    PEN             shift and go to state 15
+    $end            reduce using rule 17 (empty -> .)
+    RIGHT_PAREN     reduce using rule 17 (empty -> .)
+
+    backward                       shift and go to state 6
+    expr                           shift and go to state 18
+    loop                           shift and go to state 2
+    frcp                           shift and go to state 3
+    forward                        shift and go to state 5
+    rotate                         shift and go to state 7
+    colorexp                       shift and go to state 8
+    pen                            shift and go to state 9
+    empty                          shift and go to state 10
+
+state 7
+
+    (6) frcp -> rotate . expr
+    (1) expr -> . loop
+    (2) expr -> . frcp
+    (3) loop -> . LOOP NUMBER LEFT_PAREN expr RIGHT_PAREN expr
+    (4) frcp -> . forward expr
+    (5) frcp -> . backward expr
+    (6) frcp -> . rotate expr
+    (7) frcp -> . colorexp expr
+    (8) frcp -> . pen expr
+    (9) frcp -> . empty
+    (12) forward -> . FORWARD NUMBER
+    (11) backward -> . BACKWARD NUMBER
+    (10) rotate -> . ROTATE NUMBER
+    (14) colorexp -> . COLOR COLOR_RED
+    (15) colorexp -> . COLOR COLOR_BLUE
+    (16) colorexp -> . COLOR COLOR_GREEN
+    (13) pen -> . PEN NUMBER
+    (17) empty -> .
+
+    LOOP            shift and go to state 4
+    FORWARD         shift and go to state 11
+    BACKWARD        shift and go to state 12
+    ROTATE          shift and go to state 13
+    COLOR           shift and go to state 14
+    PEN             shift and go to state 15
+    $end            reduce using rule 17 (empty -> .)
+    RIGHT_PAREN     reduce using rule 17 (empty -> .)
+
+    rotate                         shift and go to state 7
+    expr                           shift and go to state 19
+    loop                           shift and go to state 2
+    frcp                           shift and go to state 3
+    forward                        shift and go to state 5
+    backward                       shift and go to state 6
+    colorexp                       shift and go to state 8
+    pen                            shift and go to state 9
+    empty                          shift and go to state 10
+
+state 8
+
+    (7) frcp -> colorexp . expr
+    (1) expr -> . loop
+    (2) expr -> . frcp
+    (3) loop -> . LOOP NUMBER LEFT_PAREN expr RIGHT_PAREN expr
+    (4) frcp -> . forward expr
+    (5) frcp -> . backward expr
+    (6) frcp -> . rotate expr
+    (7) frcp -> . colorexp expr
+    (8) frcp -> . pen expr
+    (9) frcp -> . empty
+    (12) forward -> . FORWARD NUMBER
+    (11) backward -> . BACKWARD NUMBER
+    (10) rotate -> . ROTATE NUMBER
+    (14) colorexp -> . COLOR COLOR_RED
+    (15) colorexp -> . COLOR COLOR_BLUE
+    (16) colorexp -> . COLOR COLOR_GREEN
+    (13) pen -> . PEN NUMBER
+    (17) empty -> .
+
+    LOOP            shift and go to state 4
+    FORWARD         shift and go to state 11
+    BACKWARD        shift and go to state 12
+    ROTATE          shift and go to state 13
+    COLOR           shift and go to state 14
+    PEN             shift and go to state 15
+    $end            reduce using rule 17 (empty -> .)
+    RIGHT_PAREN     reduce using rule 17 (empty -> .)
+
+    colorexp                       shift and go to state 8
+    expr                           shift and go to state 20
+    loop                           shift and go to state 2
+    frcp                           shift and go to state 3
+    forward                        shift and go to state 5
+    backward                       shift and go to state 6
+    rotate                         shift and go to state 7
+    pen                            shift and go to state 9
+    empty                          shift and go to state 10
+
+state 9
+
+    (8) frcp -> pen . expr
+    (1) expr -> . loop
+    (2) expr -> . frcp
+    (3) loop -> . LOOP NUMBER LEFT_PAREN expr RIGHT_PAREN expr
+    (4) frcp -> . forward expr
+    (5) frcp -> . backward expr
+    (6) frcp -> . rotate expr
+    (7) frcp -> . colorexp expr
+    (8) frcp -> . pen expr
+    (9) frcp -> . empty
+    (12) forward -> . FORWARD NUMBER
+    (11) backward -> . BACKWARD NUMBER
+    (10) rotate -> . ROTATE NUMBER
+    (14) colorexp -> . COLOR COLOR_RED
+    (15) colorexp -> . COLOR COLOR_BLUE
+    (16) colorexp -> . COLOR COLOR_GREEN
+    (13) pen -> . PEN NUMBER
+    (17) empty -> .
+
+    LOOP            shift and go to state 4
+    FORWARD         shift and go to state 11
+    BACKWARD        shift and go to state 12
+    ROTATE          shift and go to state 13
+    COLOR           shift and go to state 14
+    PEN             shift and go to state 15
+    $end            reduce using rule 17 (empty -> .)
+    RIGHT_PAREN     reduce using rule 17 (empty -> .)
+
+    pen                            shift and go to state 9
+    expr                           shift and go to state 21
+    loop                           shift and go to state 2
+    frcp                           shift and go to state 3
+    forward                        shift and go to state 5
+    backward                       shift and go to state 6
+    rotate                         shift and go to state 7
+    colorexp                       shift and go to state 8
+    empty                          shift and go to state 10
+
+state 10
+
+    (9) frcp -> empty .
+
+    $end            reduce using rule 9 (frcp -> empty .)
+    RIGHT_PAREN     reduce using rule 9 (frcp -> empty .)
+
+
+state 11
+
+    (12) forward -> FORWARD . NUMBER
+
+    NUMBER          shift and go to state 22
+
+
+state 12
+
+    (11) backward -> BACKWARD . NUMBER
+
+    NUMBER          shift and go to state 23
+
+
+state 13
+
+    (10) rotate -> ROTATE . NUMBER
+
+    NUMBER          shift and go to state 24
+
+
+state 14
+
+    (14) colorexp -> COLOR . COLOR_RED
+    (15) colorexp -> COLOR . COLOR_BLUE
+    (16) colorexp -> COLOR . COLOR_GREEN
+
+    COLOR_RED       shift and go to state 25
+    COLOR_BLUE      shift and go to state 26
+    COLOR_GREEN     shift and go to state 27
+
+
+state 15
+
+    (13) pen -> PEN . NUMBER
+
+    NUMBER          shift and go to state 28
+
+
+state 16
+
+    (3) loop -> LOOP NUMBER . LEFT_PAREN expr RIGHT_PAREN expr
+
+    LEFT_PAREN      shift and go to state 29
+
+
+state 17
+
+    (4) frcp -> forward expr .
+
+    $end            reduce using rule 4 (frcp -> forward expr .)
+    RIGHT_PAREN     reduce using rule 4 (frcp -> forward expr .)
+
+
+state 18
+
+    (5) frcp -> backward expr .
+
+    $end            reduce using rule 5 (frcp -> backward expr .)
+    RIGHT_PAREN     reduce using rule 5 (frcp -> backward expr .)
+
+
+state 19
+
+    (6) frcp -> rotate expr .
+
+    $end            reduce using rule 6 (frcp -> rotate expr .)
+    RIGHT_PAREN     reduce using rule 6 (frcp -> rotate expr .)
+
+
+state 20
+
+    (7) frcp -> colorexp expr .
+
+    $end            reduce using rule 7 (frcp -> colorexp expr .)
+    RIGHT_PAREN     reduce using rule 7 (frcp -> colorexp expr .)
+
+
+state 21
+
+    (8) frcp -> pen expr .
+
+    $end            reduce using rule 8 (frcp -> pen expr .)
+    RIGHT_PAREN     reduce using rule 8 (frcp -> pen expr .)
+
+
+state 22
+
+    (12) forward -> FORWARD NUMBER .
+
+    LOOP            reduce using rule 12 (forward -> FORWARD NUMBER .)
+    FORWARD         reduce using rule 12 (forward -> FORWARD NUMBER .)
+    BACKWARD        reduce using rule 12 (forward -> FORWARD NUMBER .)
+    ROTATE          reduce using rule 12 (forward -> FORWARD NUMBER .)
+    COLOR           reduce using rule 12 (forward -> FORWARD NUMBER .)
+    PEN             reduce using rule 12 (forward -> FORWARD NUMBER .)
+    $end            reduce using rule 12 (forward -> FORWARD NUMBER .)
+    RIGHT_PAREN     reduce using rule 12 (forward -> FORWARD NUMBER .)
+
+
+state 23
+
+    (11) backward -> BACKWARD NUMBER .
+
+    LOOP            reduce using rule 11 (backward -> BACKWARD NUMBER .)
+    FORWARD         reduce using rule 11 (backward -> BACKWARD NUMBER .)
+    BACKWARD        reduce using rule 11 (backward -> BACKWARD NUMBER .)
+    ROTATE          reduce using rule 11 (backward -> BACKWARD NUMBER .)
+    COLOR           reduce using rule 11 (backward -> BACKWARD NUMBER .)
+    PEN             reduce using rule 11 (backward -> BACKWARD NUMBER .)
+    $end            reduce using rule 11 (backward -> BACKWARD NUMBER .)
+    RIGHT_PAREN     reduce using rule 11 (backward -> BACKWARD NUMBER .)
+
+
+state 24
+
+    (10) rotate -> ROTATE NUMBER .
+
+    LOOP            reduce using rule 10 (rotate -> ROTATE NUMBER .)
+    FORWARD         reduce using rule 10 (rotate -> ROTATE NUMBER .)
+    BACKWARD        reduce using rule 10 (rotate -> ROTATE NUMBER .)
+    ROTATE          reduce using rule 10 (rotate -> ROTATE NUMBER .)
+    COLOR           reduce using rule 10 (rotate -> ROTATE NUMBER .)
+    PEN             reduce using rule 10 (rotate -> ROTATE NUMBER .)
+    $end            reduce using rule 10 (rotate -> ROTATE NUMBER .)
+    RIGHT_PAREN     reduce using rule 10 (rotate -> ROTATE NUMBER .)
+
+
+state 25
+
+    (14) colorexp -> COLOR COLOR_RED .
+
+    LOOP            reduce using rule 14 (colorexp -> COLOR COLOR_RED .)
+    FORWARD         reduce using rule 14 (colorexp -> COLOR COLOR_RED .)
+    BACKWARD        reduce using rule 14 (colorexp -> COLOR COLOR_RED .)
+    ROTATE          reduce using rule 14 (colorexp -> COLOR COLOR_RED .)
+    COLOR           reduce using rule 14 (colorexp -> COLOR COLOR_RED .)
+    PEN             reduce using rule 14 (colorexp -> COLOR COLOR_RED .)
+    $end            reduce using rule 14 (colorexp -> COLOR COLOR_RED .)
+    RIGHT_PAREN     reduce using rule 14 (colorexp -> COLOR COLOR_RED .)
+
+
+state 26
+
+    (15) colorexp -> COLOR COLOR_BLUE .
+
+    LOOP            reduce using rule 15 (colorexp -> COLOR COLOR_BLUE .)
+    FORWARD         reduce using rule 15 (colorexp -> COLOR COLOR_BLUE .)
+    BACKWARD        reduce using rule 15 (colorexp -> COLOR COLOR_BLUE .)
+    ROTATE          reduce using rule 15 (colorexp -> COLOR COLOR_BLUE .)
+    COLOR           reduce using rule 15 (colorexp -> COLOR COLOR_BLUE .)
+    PEN             reduce using rule 15 (colorexp -> COLOR COLOR_BLUE .)
+    $end            reduce using rule 15 (colorexp -> COLOR COLOR_BLUE .)
+    RIGHT_PAREN     reduce using rule 15 (colorexp -> COLOR COLOR_BLUE .)
+
+
+state 27
+
+    (16) colorexp -> COLOR COLOR_GREEN .
+
+    LOOP            reduce using rule 16 (colorexp -> COLOR COLOR_GREEN .)
+    FORWARD         reduce using rule 16 (colorexp -> COLOR COLOR_GREEN .)
+    BACKWARD        reduce using rule 16 (colorexp -> COLOR COLOR_GREEN .)
+    ROTATE          reduce using rule 16 (colorexp -> COLOR COLOR_GREEN .)
+    COLOR           reduce using rule 16 (colorexp -> COLOR COLOR_GREEN .)
+    PEN             reduce using rule 16 (colorexp -> COLOR COLOR_GREEN .)
+    $end            reduce using rule 16 (colorexp -> COLOR COLOR_GREEN .)
+    RIGHT_PAREN     reduce using rule 16 (colorexp -> COLOR COLOR_GREEN .)
+
+
+state 28
+
+    (13) pen -> PEN NUMBER .
+
+    LOOP            reduce using rule 13 (pen -> PEN NUMBER .)
+    FORWARD         reduce using rule 13 (pen -> PEN NUMBER .)
+    BACKWARD        reduce using rule 13 (pen -> PEN NUMBER .)
+    ROTATE          reduce using rule 13 (pen -> PEN NUMBER .)
+    COLOR           reduce using rule 13 (pen -> PEN NUMBER .)
+    PEN             reduce using rule 13 (pen -> PEN NUMBER .)
+    $end            reduce using rule 13 (pen -> PEN NUMBER .)
+    RIGHT_PAREN     reduce using rule 13 (pen -> PEN NUMBER .)
+
+
+state 29
+
+    (3) loop -> LOOP NUMBER LEFT_PAREN . expr RIGHT_PAREN expr
+    (1) expr -> . loop
+    (2) expr -> . frcp
+    (3) loop -> . LOOP NUMBER LEFT_PAREN expr RIGHT_PAREN expr
+    (4) frcp -> . forward expr
+    (5) frcp -> . backward expr
+    (6) frcp -> . rotate expr
+    (7) frcp -> . colorexp expr
+    (8) frcp -> . pen expr
+    (9) frcp -> . empty
+    (12) forward -> . FORWARD NUMBER
+    (11) backward -> . BACKWARD NUMBER
+    (10) rotate -> . ROTATE NUMBER
+    (14) colorexp -> . COLOR COLOR_RED
+    (15) colorexp -> . COLOR COLOR_BLUE
+    (16) colorexp -> . COLOR COLOR_GREEN
+    (13) pen -> . PEN NUMBER
+    (17) empty -> .
+
+    LOOP            shift and go to state 4
+    FORWARD         shift and go to state 11
+    BACKWARD        shift and go to state 12
+    ROTATE          shift and go to state 13
+    COLOR           shift and go to state 14
+    PEN             shift and go to state 15
+    RIGHT_PAREN     reduce using rule 17 (empty -> .)
+
+    expr                           shift and go to state 30
+    loop                           shift and go to state 2
+    frcp                           shift and go to state 3
+    forward                        shift and go to state 5
+    backward                       shift and go to state 6
+    rotate                         shift and go to state 7
+    colorexp                       shift and go to state 8
+    pen                            shift and go to state 9
+    empty                          shift and go to state 10
+
+state 30
+
+    (3) loop -> LOOP NUMBER LEFT_PAREN expr . RIGHT_PAREN expr
+
+    RIGHT_PAREN     shift and go to state 31
+
+
+state 31
+
+    (3) loop -> LOOP NUMBER LEFT_PAREN expr RIGHT_PAREN . expr
+    (1) expr -> . loop
+    (2) expr -> . frcp
+    (3) loop -> . LOOP NUMBER LEFT_PAREN expr RIGHT_PAREN expr
+    (4) frcp -> . forward expr
+    (5) frcp -> . backward expr
+    (6) frcp -> . rotate expr
+    (7) frcp -> . colorexp expr
+    (8) frcp -> . pen expr
+    (9) frcp -> . empty
+    (12) forward -> . FORWARD NUMBER
+    (11) backward -> . BACKWARD NUMBER
+    (10) rotate -> . ROTATE NUMBER
+    (14) colorexp -> . COLOR COLOR_RED
+    (15) colorexp -> . COLOR COLOR_BLUE
+    (16) colorexp -> . COLOR COLOR_GREEN
+    (13) pen -> . PEN NUMBER
+    (17) empty -> .
+
+    LOOP            shift and go to state 4
+    FORWARD         shift and go to state 11
+    BACKWARD        shift and go to state 12
+    ROTATE          shift and go to state 13
+    COLOR           shift and go to state 14
+    PEN             shift and go to state 15
+    $end            reduce using rule 17 (empty -> .)
+    RIGHT_PAREN     reduce using rule 17 (empty -> .)
+
+    expr                           shift and go to state 32
+    loop                           shift and go to state 2
+    frcp                           shift and go to state 3
+    forward                        shift and go to state 5
+    backward                       shift and go to state 6
+    rotate                         shift and go to state 7
+    colorexp                       shift and go to state 8
+    pen                            shift and go to state 9
+    empty                          shift and go to state 10
+
+state 32
+
+    (3) loop -> LOOP NUMBER LEFT_PAREN expr RIGHT_PAREN expr .
+
+    $end            reduce using rule 3 (loop -> LOOP NUMBER LEFT_PAREN expr RIGHT_PAREN expr .)
+    RIGHT_PAREN     reduce using rule 3 (loop -> LOOP NUMBER LEFT_PAREN expr RIGHT_PAREN expr .)
+
