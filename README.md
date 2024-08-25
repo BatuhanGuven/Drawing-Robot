@@ -1,5 +1,5 @@
 
-# Proje Adı: Token'dan Çizime: ANTLR ve PLY ile Turtle İle Çizim
+# Token'dan Çizime: ANTLR ve PLY ile Turtle İle Çizim
 
 ## Proje Açıklaması
 
